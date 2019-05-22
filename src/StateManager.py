@@ -45,12 +45,19 @@ class StateManager:
     self.insert_frame(self.create_empty_frame())
   
   def on_remove_frame(self) -> None:
+    if (self.current_page.get() == 0) and (len(self.data) <= self.rows):
+      return
     index = self.rows * self.current_page.get()
     del self.data[index:(index+self.rows)]
     self.goto_valid_page(self.current_page.get())
 
   def on_duplicate_frame(self) -> None:
     self.insert_frame(self.duplicate_current_frame())
+
+  def on_clear_frame(self) -> None:
+    index = self.rows * self.current_page.get()
+    self.data[index:(index+self.rows)] = self.create_empty_frame()
+    self.goto_valid_page(self.current_page.get())
 
   def insert_frame(self, frame) -> None:
     new_page_number = self.current_page.get() + 1
