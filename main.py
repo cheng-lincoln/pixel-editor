@@ -20,13 +20,24 @@ if __name__ == '__main__':
   app = tk.Tk()
   sm = StateManager(fm.data, fm.rows, fm.columns, config['pixel_on_hex_color'], config['pixel_off_hex_color'])
 
-  header_section = tk.Frame(app)
-  tk.Button(header_section, text='Remove Current Frame', command=sm.on_remove_frame, highlightbackground=config['remove_current_frame_color']).pack(side=tk.LEFT)
-  tk.Button(header_section, text='Clear Current Frame', command=sm.on_clear_frame, highlightbackground=config['clear_current_frame_color']).pack(side=tk.LEFT)
-  tk.Button(header_section, text='Add Empty Frame', command=sm.on_add_frame, highlightbackground=config['add_empty_frame_color']).pack(side=tk.RIGHT)
-  tk.Button(header_section, text='Add Copy Of Current Frame', command=sm.on_duplicate_frame, highlightbackground=config['add_duplicate_frame_color']).pack(side=tk.RIGHT)
-  tk.Button(header_section, text='Save', command=fm.write, highlightbackground=config['save_button_color']).pack()
-  header_section.pack()
+  header_section0 = tk.Frame(app)
+  tk.Button(header_section0, text='Save', command=fm.write, highlightbackground=config['save_button_color']).pack()
+  header_section0.pack()
+
+  header_section1 = tk.Frame(app)
+  tk.Button(header_section1, text='Remove Current Frame', command=sm.on_remove_frame, highlightbackground=config['remove_current_frame_color']).pack(side=tk.LEFT)
+  tk.Button(header_section1, text='Clear Current Frame', command=sm.on_clear_frame, highlightbackground=config['clear_current_frame_color']).pack(side=tk.RIGHT)
+  header_section1.pack()
+
+  header_section2 = tk.Frame(app)
+  tk.Button(header_section2, text='<< Add Empty Frame', command=sm.on_add_empty_frame_before, highlightbackground=config['add_empty_frame_color']).pack(side=tk.LEFT)
+  tk.Button(header_section2, text='Add Empty Frame >>', command=sm.on_add_empty_frame_after, highlightbackground=config['add_empty_frame_color']).pack(side=tk.RIGHT)
+  header_section2.pack()
+
+  header_section3 = tk.Frame(app)
+  tk.Button(header_section3, text='<< Add Copy Of Current Frame', command=sm.on_duplicate_frame_before, highlightbackground=config['add_duplicate_frame_color']).pack(side=tk.LEFT)
+  tk.Button(header_section3, text='Add Copy Of Current Frame >>', command=sm.on_duplicate_frame_after, highlightbackground=config['add_duplicate_frame_color']).pack(side=tk.RIGHT)
+  header_section3.pack()
 
   buttons = []
   matrix_section = tk.Frame(app)
