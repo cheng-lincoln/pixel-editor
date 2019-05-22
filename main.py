@@ -22,6 +22,7 @@ if __name__ == '__main__':
 
   header_section = tk.Frame(app)
   tk.Button(header_section, text='Remove Current Frame', command=sm.on_remove_frame, highlightbackground=config['remove_current_frame_color']).pack(side=tk.LEFT)
+  tk.Button(header_section, text='Clear Current Frame', command=sm.on_clear_frame, highlightbackground=config['clear_current_frame_color']).pack(side=tk.LEFT)
   tk.Button(header_section, text='Add Empty Frame', command=sm.on_add_frame, highlightbackground=config['add_empty_frame_color']).pack(side=tk.RIGHT)
   tk.Button(header_section, text='Add Copy Of Current Frame', command=sm.on_duplicate_frame, highlightbackground=config['add_duplicate_frame_color']).pack(side=tk.RIGHT)
   tk.Button(header_section, text='Save', command=fm.write, highlightbackground=config['save_button_color']).pack()

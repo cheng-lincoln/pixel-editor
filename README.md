@@ -67,6 +67,7 @@ You can modify configuration settings at `resources/config.json`:
 | pixel_off_hex_color        | Color of a pixel shown on GUI if its value is 0              | #ffffff                     |
 | save_button_color          | Color of the "Save" button                                   | #50bc29                     |
 | remove_current_frame_color | Color of the "Remove Current Frame" button                   | #c42e1d                     |
+| clear_current_frame_color  | Color of the "Clear Current Frame" button                    | #99e5e5                     |
 | add_empty_frame_color      | Color of the "Add Empty Frame" button                        | #f4f6f7                     |
 | add_duplicate_frame_color  | Color of the "Add Duplicate Frame" button                    | #12a7e2                     |
 | contrast_dark              | Color of the navigation buttons at odd indices               | #919596                     |
