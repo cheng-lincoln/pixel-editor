@@ -1,5 +1,6 @@
 from src.lib import trpad
 from typing import List
+import os
 
 DataType = List[List[int]]
 
@@ -10,7 +11,21 @@ class FileManager:
         self.columns = columns
         self.data: DataType = None
 
+        self.data_dir = 'data'
+
+    def create_data_dir_if_not_exist(self):
+        if not os.path.exists(self.data_dir):
+            os.makedirs(self.data_dir)
+
+    def create_data_file_if_not_exist(self):
+        file_path = '{0}/{1}'.format(self.data_dir, self.filename)
+        if not os.path.isfile(file_path):
+            with open(file_path, 'w') as fp:
+                print('No file named {0} exists in data folder. Creating file.'.format(self.filename))
+
     def read(self) -> None:
+        self.create_data_dir_if_not_exist()
+        self.create_data_file_if_not_exist()
         with open('data/{0}'.format(self.filename), 'r') as fp:
             data = fp.readlines()
             data = [[int(e) for e in d.strip()] for d in data]
